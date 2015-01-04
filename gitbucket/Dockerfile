@@ -8,6 +8,6 @@ RUN wget https://github.com/takezoe/gitbucket/releases/download/2.7/gitbucket.wa
 
 ENV NAME tomcat
 
-EXPOSE 8080
+EXPOSE 8080 29418
 
 ENTRYPOINT tomcat start && tail -f /dev/null
