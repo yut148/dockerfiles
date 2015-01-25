@@ -8,7 +8,11 @@ RUN systemctl enable smb
 RUN systemctl enable nmb
 
 RUN rm -rf /var/lib/samba
+COPY files/init.sh /root/init.sh
+RUN chmod 755 /root/init.sh
+
 COPY files/smb.conf /etc/samba/smb.conf
+COPY files/userlist /root/userlist
 
 EXPOSE 137 138 139 445
 
