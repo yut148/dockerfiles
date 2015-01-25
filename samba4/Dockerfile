@@ -7,4 +7,9 @@ RUN yum swap -y fakesystemd systemd
 RUN systemctl enable smb
 RUN systemctl enable nmb
 
+RUN rm -rf /var/lib/samba
+COPY files/smb.conf /etc/samba/smb.conf
+
 EXPOSE 137 138 139 445
+
+ENTRYPOINT /sbin/init
