@@ -1,2 +1,3 @@
 #!/bin/bash
-docker stop samba && docker rm samba
+./user_export.sh
+docker stop samba4 && docker rm samba4

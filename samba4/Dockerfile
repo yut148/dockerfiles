@@ -1,6 +1,9 @@
 FROM tmatsumoto/centos7-ja
 MAINTAINER MATSUMOTO Takashi <t.matsumoto0308@gmail.com>
 
+EXPOSE 137 138 139 445
+ENTRYPOINT /sbin/init
+
 RUN yum install -y samba
 RUN yum swap -y fakesystemd systemd
 
@@ -8,12 +11,9 @@ RUN systemctl enable smb
 RUN systemctl enable nmb
 
 RUN rm -rf /var/lib/samba
-COPY files/init.sh /root/init.sh
-RUN chmod 755 /root/init.sh
+
+RUN useradd -D -b/share/home
+RUN mkdir /etc/skel/samba.d
 
 COPY files/smb.conf /etc/samba/smb.conf
-COPY files/userlist /root/userlist
-
-EXPOSE 137 138 139 445
-
-ENTRYPOINT /sbin/init
+COPY files/etc/* /etc/
