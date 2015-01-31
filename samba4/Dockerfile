@@ -1,7 +1,6 @@
 FROM tmatsumoto/centos7-ja
 MAINTAINER MATSUMOTO Takashi <t.matsumoto0308@gmail.com>
 
-EXPOSE 137 138 139 445
 ENTRYPOINT /sbin/init
 
 RUN yum install -y samba
@@ -17,3 +16,5 @@ RUN mkdir /etc/skel/samba.d
 
 COPY files/smb.conf /etc/samba/smb.conf
 COPY files/etc/* /etc/
+
+EXPOSE 137 138 139 445
