@@ -4,7 +4,7 @@ MAINTAINER MATSUMOTO Takashi <t.matsumoto0308@gmail.com>
 RUN yum install -y tomcat
 
 WORKDIR /var/lib/tomcat/webapps
-RUN wget https://github.com/takezoe/gitbucket/releases/download/2.8/gitbucket.war
+RUN wget https://github.com/takezoe/gitbucket/releases/download/3.6/gitbucket.war
 
 ENV NAME tomcat
 
